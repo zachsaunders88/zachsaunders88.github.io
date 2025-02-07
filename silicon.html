@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./silicon.css"/>
+    <link rel="icon" href="/assets/reverie-icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/reverie-icon.png" type="image/x-icon">
+    <title>Silicon Entropy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS ANIMATION -->
+    <link href="/styling/hover.css" rel="stylesheet" media="all">
+    <link href="/styling/obnoxious.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #mainContent {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+
+        .left {
+            width: 17.5%;
+            background-color: black;
+            height: 100%;
+            z-index: 2;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* Shadow on the right side */
+        }
+
+        .right {
+            width: 17.5%;
+            z-index: 2;
+            background-color: black;
+            height: 100%;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Shadow on the left side */
+        }
+
+        .center {
+            width: 65%;
+            background-color: white;
+            height: 100%;
+            text-align: center;
+            z-index: 1;
+            margin-top: 20px;
+        }
+    </style>
+
+
+</head>
+
+<div id="startPage" style="z-index: 5;">
+    <div id="coverDiv" style="background-color: white; width:100%; height:100%; position: absolute; display: block; z-index: inherit;"> 
+
+    </div>
+
+    <div id="codeFallDiv" style="display: none; width:100%; height:100%; position: absolute; display: block; z-index: inherit;">
+        <canvas id="canvas1">
+            <img src="/assets/reverie-icon.png" style="width:300px; position: absolute;">
+        </canvas>
+    </div>
+
+    <div id="iconDiv" style="display: block; position: absolute; width: 500px; background-color: transparent; top: 50%; left:50%; transform: translate(-50%, -50%); z-index: inherit;">
+        <img id="startLogo" class="hvr-bounce-in" src="/assets/reverie-icon.png" style="width: 500px;" onclick="revealPage()">
+    </div>
+</div>
+
+
+<body style="background-color: #fff; z-index: 1;">
+
+
+    <!-- NAVBAR #06BEE1-->
+    <nav class="navbar">
+        <div class="logo">
+            <a class="silicon-title">Silicon Entropy</a>
+            <a style="font-size: 12px;">By Zach Saunders</a>
+        </div>
+    </nav>
+
+    <!--<canvas id="spriteCanvas" width="600" height="400"></canvas>-->
+
+    <!--
+    <div id="codeTraceDiv" style="display: none;">
+        <canvas id="canvas2"></canvas>
+    </div>
+
+    <div id="buttonsDiv" style="display: block; margin-top:20px; margin-left: 20px;">   
+        <button onclick="activateCodeFall('WHITE')" style="background-color:white; color: black;">CODEFALL WHITE</button>
+        <button onclick="activateCodeFall('BLUE')" style="background-color:white; color: black;">CODEFALL BLUE</button>
+        <button onclick="activateCodeFall('RAINBOW')" style="background-color:white; color: black;">CODEFALL RAINBOW</button>
+        <button onclick="activateCodeFall('RAINBOW')" style="background-color:white; color: black;">NO GRADIENT</button>
+        <button onclick="activateCodeTrace()" style="background-color: white; color: black;">CODE TRACE</button>
+    </div>
+    -->
+
+    <div id="mainContent">
+        <div class="left">
+            <a href="/subpages/liquid/index.html" style="text-decoration: none;">
+                <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction:column">
+                    <svg class="glyph-anim1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 80 L 80 20 L 80 80" fill="none" stroke="white" stroke-width="10" />
+                    </svg>
+                    <h1 class="silicon-subtitle"> Liquid Reverie </p>
+                </div>
+            </a>
+            <a href="/subpages/moldSim/mold.html" style="text-decoration: none;">
+                <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction:column"">
+                    <svg class="glyph-anim1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 20 80 L 50 20 L 80 50 L 60 70 L 40 50 L 20 80" fill="none" stroke="white" stroke-width="10" />
+                    </svg>
+                    <h1 class="silicon-subtitle"> Mold SimS </p>
+                </div>
+            </a>
+            <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction:column"">
+                <svg class="glyph-anim1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 20 20 L 40 60 L 30 80 L 50 50 L 80 80" fill="none" stroke="white" stroke-width="10" />
+                  </svg>
+                  <h1 class="silicon-subtitle"> { Placeholder } </p>
+            </div>
+            <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction:column"">
+                <svg class="glyph-anim1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30 30 Q 50 10 70 30 M 70 30 Q 90 50 70 70 M 70 70 Q 50 90 30 70 M 30 70 Q 10 50 30 30" fill="none" stroke="white" stroke-width="10" />
+                  </svg>
+                  <h1 class="silicon-subtitle"> { Placeholder } </p>
+            </div>
+        
+        </div>
+        <div id="centre" style="display: flex; flex-direction: column; overflow: auto; width: 100%;">
+            <div class="oswald-text" style="color: black; font-size: 50px; text-align: center; font-weight: bold; margin-bottom: 20px;">
+                Hi, I'm Zach
+                <p style="font-size: 35px;">A Postgraduate Student in Computer Science & Cybersecurity</p>
+                <p style="font-size: 30px; font-style: italic; font-weight: lighter"> 0272888864, Auckland, The University Of Auckland</p>
+            </div>
+
+
+            <div class="grid-container">
+                <div class="grid-item" style="border-right: 2px solid black; border-bottom: 2px solid black; border-top: 4px solid black;">
+                    <h1 class="profile-text">PROFILE</h1>
+                    <p class="profile-text" style="text-align: justify; margin:20px; font-size:18px;">Postgraduate student in Computer Science, focused on the topics of software development, operating systems, machine learning, network security, and human-computer interaction. Pursuing a Master’s degree at UoA, with a strong commitment to research in systems security, cybersecurity, and artificial intelligence. Employed as a teaching assistant at the University, where I support students, coordinate invigilated tests, solve problems, and facilitate clear communication. I have a strong understanding of PC hardware and software (Windows, Linux, Computer Architecture) accompanied with software development experience and knowledge of complex topics in data science related to machine learning and data mining. </p>
+                </div>
+                <div class="grid-item" style="background-color: white; border-left: 2px solid black; border-bottom: 2px solid black; border-top: 4px solid black;">
+                    <h1 class="profile-text" style="color: black;">SKILLS</h1>
+                    <ul style="width:100%; margin-left: 80px;">
+                        <li><p style="font-style: italic; font-weight: bold;">Computer Security</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Cyber security risk management</li>
+                                <li>Network defence & digital communication</li>
+                                <li>Access Control Methodologies</li>
+                                <li>Cryptographic Management</li>
+                            </ul>
+                        </li>
+                        <li><p style="font-style: italic; font-weight: bold;">Software Development</p>
+                            <ul style="margin-left:40px;">
+                                <li>Programming (Java, Python, C, HTML/CSS, C#, JavaScript)</li>
+                                <li>Machine Learning, Data Mining, Neural Networks (Numpy, TensorFlow, R)</li>
+                                <li>Web development (full-stack, React)</li>
+                            </ul>
+                        </li>
+                        <li><p style="font-style: italic; font-weight: bold;">Computer Systems & Theoretical CS</p>
+                            <ul style="margin-left: 40px;">
+                                <li>Computer architecture & hardware knowledge</li>
+                                <li>Discrete mathematics (number theory, graph theory)</li>
+                                <li>Computer graphics & image processing</li>
+                                <li>Human Computer Interaction</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-item" style="border-top: 2px solid black; border-right: 2px solid black;">
+                    <h1 class="profile-text">EXPERIENCE</h1>
+                </div>
+                <div class="grid-item" style="border-left:2px solid black; border-top: 2px solid black;">
+                    <h1 class="profile-text">EDUCATION</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction: column;">
+                <svg class="glyph-anim1" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 60 96 L 60 48 M 36 24 L 60 48 L 84 24 M 48 72 L 72 72" fill="none" stroke="white" stroke-width="12" />
+                </svg>
+                <h1 class="silicon-subtitle"> { Placeholder } </p>
+            </div>
+            <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction: column;">
+                <svg class="glyph-anim1" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24 96 Q 48 72 24 48 Q 60 24 96 48 Q 72 72 96 96" fill="none" stroke="white" stroke-width="12" />
+                </svg>
+                <h1 class="silicon-subtitle"> { Placeholder } </p>
+            </div>
+            <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction: column;">
+                <svg class="glyph-anim1" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24 48 Q 60 24 96 48 M 24 72 Q 60 96 96 72 M 60 48 L 60 72" fill="none" stroke="white" stroke-width="12" />
+                </svg>
+                <h1 class="silicon-subtitle"> { Placeholder } </p>
+            </div>
+            <div class="hvr-grow glyph-anim1" style="display: flex; justify-content: center; align-items: center; height: 200px; flex-direction: column;">
+                <svg class="glyph-anim1" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 60 24 L 60 96 M 36 48 L 60 72 L 84 48 M 36 72 L 60 48 L 84 72" fill="none" stroke="white" stroke-width="12" />
+                </svg>
+                <h1 class="silicon-subtitle"> { Placeholder } </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./script/codetrace.js"></script>
+    <script src="./script/codefall.js"></script>
+    <script src="/silicon.js"></script>
+    <script>
+        fetch('./assets/icon.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('text-content').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error loading the text file:', error);
+                document.getElementById('text-content').textContent = 'Failed to load content.';
+            });
+    </script>
+    <script src="./script/spriteRoam.js"></script>
+
+</body>
+</html>
